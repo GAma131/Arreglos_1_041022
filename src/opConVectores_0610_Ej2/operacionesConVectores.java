@@ -47,7 +47,7 @@ public class operacionesConVectores {
   }
 
   public int obtenerMaximo() {
-    int max = -999999999;
+    int max = vector[0];
     for (int i = 0; i < vector.length; i++) {
       if (vector[i] > max) {
         max = vector[i];
@@ -57,7 +57,7 @@ public class operacionesConVectores {
   }
 
   public int obtenerMinimo() {
-    int min = 999999999;
+    int min = vector[0];
     for (int i = 0; i < vector.length; i++) {
       if (vector[i] < min) {
         min = vector[i];
@@ -92,6 +92,6 @@ public class operacionesConVectores {
         } //fin if
       }
     } //fin for
-    JOptionPane.showMessageDialog(null, moda);
+    JOptionPane.showMessageDialog(null, "Moda del conjunto: " + moda);
   }
 }

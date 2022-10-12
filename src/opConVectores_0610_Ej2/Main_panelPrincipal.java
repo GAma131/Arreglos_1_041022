@@ -49,7 +49,6 @@ public class Main_panelPrincipal {
           JOptionPane.showMessageDialog(null, "Opción 2");
           break;
         case "b":
-          JOptionPane.showMessageDialog(null, "Opción Regresar");
           sentinel = false;
           break;
         default:
@@ -132,7 +131,6 @@ public class Main_panelPrincipal {
           obj.obtenerModa();
           break;
         case "b":
-          JOptionPane.showMessageDialog(null, "Opción salir");
           sentinel = false;
           break;
         default:
