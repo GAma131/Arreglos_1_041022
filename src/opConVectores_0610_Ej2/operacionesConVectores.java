@@ -1,5 +1,7 @@
 package opConVectores_0610_Ej2;
 
+import java.util.HashMap;
+import java.util.Map.Entry;
 import javax.swing.JOptionPane;
 
 public class operacionesConVectores {
@@ -92,6 +94,6 @@ public class operacionesConVectores {
         } //fin if
       }
     } //fin for
-    JOptionPane.showMessageDialog(null, "Moda del conjunto: " + moda);
+    JOptionPane.showMessageDialog(null, "Número que más se repite: " + moda);
   }
 }
