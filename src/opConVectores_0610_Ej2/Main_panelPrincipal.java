@@ -46,7 +46,7 @@ public class Main_panelPrincipal {
           crearMenuVectores();
           break;
         case "2":
-          JOptionPane.showMessageDialog(null, "Opción 2");
+          crearMenuMatrices();
           break;
         case "b":
           sentinel = false;
@@ -85,7 +85,7 @@ public class Main_panelPrincipal {
     operacionesConVectores obj = new operacionesConVectores(tamano);
 
     menu =
-      "Menu Principal\n" +
+      "Menu Principal VECTORES\n" +
       "1) Llenar vector\n" +
       "2) Imprimir valores\n" +
       "3) Sumar los elementos\n" +
@@ -140,6 +140,74 @@ public class Main_panelPrincipal {
     } while (sentinel);
   }
 
+  public static void crearMenuMatrices() {
+    boolean sentinel = true;
+    String menu;
+    String opcion;
+    String n;
+    int tamano;
+
+    do {
+      n = JOptionPane.showInputDialog("Introduce el tamaño del arreglo: ");
+      if (validarN(n)) {
+        tamano = Integer.parseInt(n);
+        if (tamano > 0) {
+          break;
+        } else {
+          JOptionPane.showMessageDialog(
+            null,
+            "El tamaño no puede ser 0 o negativo!"
+          );
+        }
+      } else {
+        JOptionPane.showMessageDialog(null, "El valor debe ser un entero!");
+      }
+    } while (true);
+
+    operacionesConMatrices obj1 = new operacionesConMatrices(tamano);
+
+    menu =
+      "Menu Principal MATRICES\n" +
+      "1) Llenar Matriz\n" +
+      "2) Imprimir valores\n" +
+      "3) Sumar los elementos\n" +
+      "4) Valor máximo y mínimo\n" +
+      "5) Tamaño del arreglo\n" +
+      "6) Media aritmetica\n" +
+      "7) Obtener Moda\n" +
+      "b) Regresar\n\n" +
+      "Selecciona una opción valida:";
+
+    do {
+      opcion = JOptionPane.showInputDialog(menu);
+
+      switch (opcion) {
+        case "1":
+          obj1.llenarMatriz(solicitarvaloresMatriz(tamano));
+          break;
+        case "2":
+          obj1.ImprimirMatriz();
+          break;
+        case "3":
+          break;
+        case "4":
+          break;
+        case "5":
+          break;
+        case "6":
+          break;
+        case "7":
+          break;
+        case "b":
+          sentinel = false;
+          break;
+        default:
+          JOptionPane.showMessageDialog(null, "Opción no valida!");
+          break;
+      }
+    } while (sentinel);
+  }
+
   public static boolean validarN(String n) {
     try {
       Integer.parseInt(n);
@@ -160,5 +228,30 @@ public class Main_panelPrincipal {
       arg[i] = Integer.parseInt(valor);
     }
     return arg;
+  }
+
+  public static int[][] solicitarvaloresMatriz(int tam) {
+    int arr[][] = new int[tam][tam];
+    String valor;
+
+    int fila = 0;
+    while (fila < arr.length) {
+      for (int columna = 0; columna < arr.length; columna++) {
+        do {
+          valor =
+            JOptionPane.showInputDialog(
+              "introduce el valor de la posicion [ " +
+              fila +
+              " ]" +
+              "[ " +
+              columna +
+              " ]"
+            );
+        } while (!validarN(valor));
+        arr[fila][columna] = Integer.parseInt(valor);
+      }
+      fila++;
+    }
+    return arr;
   }
 }
