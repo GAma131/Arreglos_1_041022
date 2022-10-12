@@ -1,0 +1,2 @@
+#Ignorar archivos .class Dentro de src y sus subcarpetas
+src/**/*.class
