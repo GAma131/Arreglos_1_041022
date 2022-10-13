@@ -95,7 +95,7 @@ public class operacionesConVectores {
     int n = vector.length;
     do {
       j = 0;
-      while (1 < n - 1) {
+      while (j < n - 1) {
         if (vector[j] > vector[j + 1]) {
           aux = vector[j];
           vector[j] = vector[j + 1];
@@ -105,6 +105,7 @@ public class operacionesConVectores {
       }
       i++;
     } while (i < n);
+    Imprimir();
   }
 
   public int ordenarBuscSecuencial(int valor) {
