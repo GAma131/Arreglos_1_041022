@@ -30,15 +30,6 @@ public class operacionesConVectores {
     }
   }
 
-  public void Imprimir() {
-    String cadena = "";
-    for (int valor : vector) {
-      cadena += valor + "\n";
-    }
-
-    JOptionPane.showMessageDialog(null, cadena);
-  }
-
   public void sumarVector() {
     int suma = 0;
     for (int valor : vector) {
@@ -95,5 +86,42 @@ public class operacionesConVectores {
       }
     } //fin for
     JOptionPane.showMessageDialog(null, "Número que más se repite: " + moda);
+  }
+
+  public void ordenarBurbujaAsc() {
+    int aux = 0;
+    int i = 0;
+    int j = 0;
+    int n = vector.length;
+    do {
+      j = 0;
+      while (1 < n - 1) {
+        if (vector[j] > vector[j + 1]) {
+          aux = vector[j];
+          vector[j] = vector[j + 1];
+          vector[j + 1] = aux;
+        }
+        j++;
+      }
+      i++;
+    } while (i < n);
+  }
+
+  public int ordenarBuscSecuencial(int valor) {
+    for (int i = 0; i < vector.length; i++) {
+      if (valor == vector[i]) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  public void Imprimir() {
+    String cadena = "";
+    for (int valor : vector) {
+      cadena += valor + "\n";
+    }
+
+    JOptionPane.showMessageDialog(null, cadena);
   }
 }

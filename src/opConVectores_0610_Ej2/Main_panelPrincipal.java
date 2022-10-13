@@ -93,6 +93,8 @@ public class Main_panelPrincipal {
       "5) Tamaño del arreglo\n" +
       "6) Media aritmetica\n" +
       "7) Obtener Moda\n" +
+      "8) Ordenamiento burbuja (ascendente)\n" +
+      "9) Ordenamiento de Busqueda Secuencial\n" +
       "b) Regresar\n\n" +
       "Selecciona una opción valida:";
 
@@ -129,6 +131,15 @@ public class Main_panelPrincipal {
           break;
         case "7":
           obj.obtenerModa();
+          break;
+        case "8":
+          obj.ordenarBurbujaAsc();
+          break;
+        case "9":
+          int valor = Integer.parseInt(
+            JOptionPane.showInputDialog("Introduce el valor a buscar: ")
+          );
+          obj.ordenarBuscSecuencial(valor);
           break;
         case "b":
           sentinel = false;
@@ -208,15 +219,6 @@ public class Main_panelPrincipal {
     } while (sentinel);
   }
 
-  public static boolean validarN(String n) {
-    try {
-      Integer.parseInt(n);
-      return true;
-    } catch (NumberFormatException e) {
-      return false;
-    }
-  }
-
   public static int[] solicitarValores(int tamano) {
     int[] arg = new int[tamano];
     String valor = "";
@@ -253,5 +255,14 @@ public class Main_panelPrincipal {
       fila++;
     }
     return arr;
+  }
+
+  public static boolean validarN(String n) {
+    try {
+      Integer.parseInt(n);
+      return true;
+    } catch (NumberFormatException e) {
+      return false;
+    }
   }
 }
