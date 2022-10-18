@@ -108,7 +108,27 @@ public class operacionesConVectores {
     Imprimir();
   }
 
-  public int ordenarBuscSecuencial(int valor) {
+  public void ordenarBurbujaDesc() {
+    int aux = 0;
+    int i = 0;
+    int j = 0;
+    int n = vector.length;
+    do {
+      j = 0;
+      while (j < n - 1) {
+        if (vector[j] < vector[j + 1]) {
+          aux = vector[j];
+          vector[j] = vector[j + 1];
+          vector[j + 1] = aux;
+        }
+        j++;
+      }
+      i++;
+    } while (i < n);
+    Imprimir();
+  }
+
+  public int busquedaSecuencial(int valor) {
     for (int i = 0; i < vector.length; i++) {
       if (valor == vector[i]) {
         return i;

@@ -93,8 +93,9 @@ public class Main_panelPrincipal {
       "5) Tamaño del arreglo\n" +
       "6) Media aritmetica\n" +
       "7) Obtener Moda\n" +
-      "8) Ordenamiento burbuja (ascendente)\n" +
-      "9) Ordenamiento de Busqueda Secuencial\n" +
+      "8) Ordenamiento burbuja (Ascendente)\n" +
+      "9) Ordenamiento burbuja (Descendente)\n" +
+      "10) Ordenamiento de Busqueda Secuencial\n" +
       "b) Regresar\n\n" +
       "Selecciona una opción valida:";
 
@@ -136,10 +137,29 @@ public class Main_panelPrincipal {
           obj.ordenarBurbujaAsc();
           break;
         case "9":
-          int valor = Integer.parseInt(
-            JOptionPane.showInputDialog("Introduce el valor a buscar: ")
-          );
-          obj.ordenarBuscSecuencial(valor);
+          obj.ordenarBurbujaDesc();
+          break;
+        case "10":
+          String valor = "";
+          do {
+            valor =
+              JOptionPane.showInputDialog(
+                "Ingrese el numero que quiere buscar: "
+              );
+          } while (!validarN(valor));
+          int p = obj.busquedaSecuencial(Integer.parseInt(valor));
+          if (p == -1) {
+            JOptionPane.showMessageDialog(
+              null,
+              "La busqueda secuencial no encontró el valor solicitado"
+            );
+          } else {
+            JOptionPane.showMessageDialog(
+              null,
+              "La busqueda secuencial encontro el valor solicitado en la posicion " +
+              obj.busquedaSecuencial(Integer.parseInt(valor))
+            );
+          }
           break;
         case "b":
           sentinel = false;
@@ -242,12 +262,10 @@ public class Main_panelPrincipal {
         do {
           valor =
             JOptionPane.showInputDialog(
-              "introduce el valor de la posicion [ " +
-              fila +
-              " ]" +
-              "[ " +
-              columna +
-              " ]"
+              "introduce el valor de la posicion ( " +
+              (fila + 1) +
+              " , " +
+              (columna + 1)
             );
         } while (!validarN(valor));
         arr[fila][columna] = Integer.parseInt(valor);
