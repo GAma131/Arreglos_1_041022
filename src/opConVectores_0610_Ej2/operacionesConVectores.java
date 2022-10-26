@@ -137,6 +137,92 @@ public class operacionesConVectores {
     return -1;
   }
 
+  // * NUEVO
+
+  public void ordenarSeleccion() {
+    int n = vector.length;
+    int aux = n;
+    for (int i = 0; i < n - 1; i++) {
+      int minimo = i;
+      for (int j = i + 1; j < n; j++) {
+        if (vector[j] < vector[minimo]) {
+          minimo = j;
+        }
+      }
+      aux = vector[i];
+      vector[i] = vector[minimo];
+      vector[minimo] = aux;
+    }
+  }
+
+  public void ordenarInsercion() {
+    int n = vector.length;
+    int aux = n;
+    for (int i = 1; i < n; i++) {
+      aux = vector[i];
+      for (int j = i - 1; j >= 0 && vector[j] > aux; j--) {
+        vector[j + 1] = vector[j];
+        vector[j] = aux;
+      }
+    }
+  }
+
+  public void ordenarShell() {
+    int n = vector.length;
+    int aux;
+    int salto = vector.length / 2;
+    int j, k;
+
+    while (salto > 0) {
+      for (int i = salto; i < n; i++) {
+        j = i - salto;
+        while (j >= 0) {
+          k = j + salto;
+          if (vector[j] <= vector[k]) {
+            j = -1;
+          } else {
+            aux = vector[j];
+            vector[j] = vector[k];
+            vector[k] = aux;
+            j -= salto;
+          }
+        }
+      }
+      salto = salto / 2;
+    }
+  }
+
+  public void ordenarQuicksort(int izq, int der) {
+    int i, j, pivote, aux;
+    i = izq;
+    j = der;
+
+    pivote = vector[(izq + der) / 2];
+    do {
+      while (vector[i] < pivote) {
+        i++;
+      }
+      while (vector[j] > pivote) {
+        j--;
+      }
+      if (i <= j) {
+        aux = vector[i];
+        vector[i] = vector[j];
+        vector[j] = aux;
+        i++;
+        j--;
+      }
+    } while (i <= j);
+    if (izq < j) {
+      ordenarQuicksort(izq, j);
+    }
+    if (i < der) {
+      ordenarQuicksort(i, der);
+    }
+  }
+
+  // * FIN NUEVO
+
   public void Imprimir() {
     String cadena = "";
     for (int valor : vector) {

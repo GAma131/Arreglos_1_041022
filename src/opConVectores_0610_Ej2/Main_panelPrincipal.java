@@ -206,6 +206,7 @@ public class Main_panelPrincipal {
       "5) Tamaño del arreglo\n" +
       "6) Media aritmetica\n" +
       "7) Obtener Moda\n" +
+      "8) Ordenamiento burbuja\n" +
       "b) Regresar\n\n" +
       "Selecciona una opción valida:";
 
@@ -228,6 +229,9 @@ public class Main_panelPrincipal {
         case "6":
           break;
         case "7":
+          break;
+        case "8":
+          obj1.ordenarBurbuja();
           break;
         case "b":
           sentinel = false;
@@ -265,7 +269,8 @@ public class Main_panelPrincipal {
               "introduce el valor de la posicion ( " +
               (fila + 1) +
               " , " +
-              (columna + 1)
+              (columna + 1) +
+              " )"
             );
         } while (!validarN(valor));
         arr[fila][columna] = Integer.parseInt(valor);
