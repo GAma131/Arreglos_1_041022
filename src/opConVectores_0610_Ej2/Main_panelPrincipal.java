@@ -96,6 +96,10 @@ public class Main_panelPrincipal {
       "8) Ordenamiento burbuja (Ascendente)\n" +
       "9) Ordenamiento burbuja (Descendente)\n" +
       "10) Ordenamiento de Busqueda Secuencial\n" +
+      "11) Ordenar Selección\n" +
+      "12) Ordenar Inserción\n" +
+      "13) Ordenar Shell\n" +
+      "14) Ordenar Quicksort\n" +
       "b) Regresar\n\n" +
       "Selecciona una opción valida:";
 
@@ -160,6 +164,18 @@ public class Main_panelPrincipal {
               obj.busquedaSecuencial(Integer.parseInt(valor))
             );
           }
+          break;
+        case "11":
+          obj.ordenarSeleccion();
+          break;
+        case "12":
+          obj.ordenarInsercion();
+          break;
+        case "13":
+          obj.ordenarShell();
+          break;
+        case "14":
+          obj.ordenarQuicksort(0, -1);
           break;
         case "b":
           sentinel = false;
