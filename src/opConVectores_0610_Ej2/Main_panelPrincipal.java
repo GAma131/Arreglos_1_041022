@@ -175,7 +175,7 @@ public class Main_panelPrincipal {
           obj.ordenarShell();
           break;
         case "14":
-          obj.ordenarQuicksort(0, -1);
+          obj.ordenarQuicksort(0, tamano - 1);
           break;
         case "b":
           sentinel = false;
