@@ -140,9 +140,11 @@ public class Main_panelPrincipal {
           break;
         case "8":
           obj.ordenarBurbujaAsc();
+          obj.Imprimir();
           break;
         case "9":
           obj.ordenarBurbujaDesc();
+          obj.Imprimir();
           break;
         case "10":
           String valor = "";
@@ -166,22 +168,41 @@ public class Main_panelPrincipal {
               obj.busquedaSecuencial(Integer.parseInt(valor)) +
               "]"
             );
+            obj.Imprimir();
           }
           break;
         case "11":
           obj.ordenarSeleccion();
+          obj.Imprimir();
           break;
         case "12":
           obj.ordenarInsercion();
+          obj.Imprimir();
           break;
         case "13":
           obj.ordenarShell();
+          obj.Imprimir();
           break;
         case "14":
           obj.ordenarQuicksort(0, tamano - 1);
+          obj.Imprimir();
           break;
         case "15":
-          obj.ordenarQuicksort(0, tamano - 1);
+          valor = "";
+          do {
+            valor =
+              JOptionPane.showInputDialog("Introduce el numero a buscar: ");
+          } while (!validarN(valor));
+          tamano = obj.busquedaBinaria(Integer.parseInt(valor));
+          if (tamano != -1) {
+            JOptionPane.showMessageDialog(
+              null,
+              "La busqueda se encontro en la posicion: " + tamano
+            );
+          } else {
+            JOptionPane.showMessageDialog(null, "La busqueda no se encontro");
+          }
+          obj.Imprimir();
           break;
         case "b":
           sentinel = false;
