@@ -2,6 +2,6 @@
 
 ### Clase "opConVectores":
 
-    * Métodos de búsqueda.
-    * Métodos de ordenamiento.
-    * Operaciónes aritmeticas.
+- Métodos de búsqueda.
+- Métodos de ordenamiento.
+- Operaciónes aritmeticas.
