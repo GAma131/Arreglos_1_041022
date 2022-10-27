@@ -1,3 +1,7 @@
 ## LINK DE GITHUB DEL EXAMEN:
 
-https://github.com/GAma131/Examen_2.git
+## Clase "opConVectores":
+
+    - Métodos de búsqueda.
+    - Métodos de ordenamiento.
+    - Operaciónes aritmeticas.
