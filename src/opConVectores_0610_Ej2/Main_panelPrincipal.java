@@ -95,11 +95,12 @@ public class Main_panelPrincipal {
       "7) Obtener Moda\n" +
       "8) Ordenamiento burbuja (Ascendente)\n" +
       "9) Ordenamiento burbuja (Descendente)\n" +
-      "10) Ordenamiento de Busqueda Secuencial\n" +
+      "10) Busqueda Secuencial\n" +
       "11) Ordenar Selección\n" +
       "12) Ordenar Inserción\n" +
       "13) Ordenar Shell\n" +
       "14) Ordenar Quicksort\n" +
+      "15) Busqueda Binaria\n" +
       "b) Regresar\n\n" +
       "Selecciona una opción valida:";
 
@@ -161,7 +162,9 @@ public class Main_panelPrincipal {
             JOptionPane.showMessageDialog(
               null,
               "La busqueda secuencial encontro el valor solicitado en la posicion " +
-              obj.busquedaSecuencial(Integer.parseInt(valor))
+              "[" +
+              obj.busquedaSecuencial(Integer.parseInt(valor)) +
+              "]"
             );
           }
           break;
@@ -175,6 +178,9 @@ public class Main_panelPrincipal {
           obj.ordenarShell();
           break;
         case "14":
+          obj.ordenarQuicksort(0, tamano - 1);
+          break;
+        case "15":
           obj.ordenarQuicksort(0, tamano - 1);
           break;
         case "b":

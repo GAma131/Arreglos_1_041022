@@ -137,6 +137,23 @@ public class operacionesConVectores {
     return -1;
   }
 
+  public int busquedaBinaria(int valor) {
+    int n = vector.length;
+    int centro, primero = 0, ultimo = n - 1;
+    while (primero <= ultimo) {
+        centro = (ultimo + primero) / 2;
+        if (vector[centro] == valor){
+            return centro;
+        }
+        else if (valor < vector[centro]) {
+            ultimo = centro - 1;
+        } else {
+            primero = centro + 1;
+        }
+    }
+    return -1;
+}
+
   // * NUEVO
 
   public void ordenarSeleccion() {
