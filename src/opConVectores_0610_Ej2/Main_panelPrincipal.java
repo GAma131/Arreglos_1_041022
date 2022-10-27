@@ -140,11 +140,9 @@ public class Main_panelPrincipal {
           break;
         case "8":
           obj.ordenarBurbujaAsc();
-          obj.Imprimir();
           break;
         case "9":
           obj.ordenarBurbujaDesc();
-          obj.Imprimir();
           break;
         case "10":
           String valor = "";
@@ -188,6 +186,7 @@ public class Main_panelPrincipal {
           obj.Imprimir();
           break;
         case "15":
+          obj.ordenarBurbujaAsc();
           valor = "";
           do {
             valor =

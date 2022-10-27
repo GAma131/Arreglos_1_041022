@@ -88,6 +88,35 @@ public class operacionesConVectores {
     JOptionPane.showMessageDialog(null, "Número que más se repite: " + moda);
   }
 
+  // ! METODOS DE BUSQUEDA
+
+  public int busquedaSecuencial(int valor) {
+    for (int i = 0; i < vector.length; i++) {
+      if (valor == vector[i]) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  public int busquedaBinaria(int valor) {
+    int n = vector.length;
+    int centro, primero = 0, ultimo = n - 1;
+    while (primero <= ultimo) {
+      centro = (ultimo + primero) / 2;
+      if (vector[centro] == valor) {
+        return centro;
+      } else if (valor < vector[centro]) {
+        ultimo = centro - 1;
+      } else {
+        primero = centro + 1;
+      }
+    }
+    return -1;
+  }
+
+  // ! METODOS DE ORDENAMIENTO
+
   public void ordenarBurbujaAsc() {
     int aux = 0;
     int i = 0;
@@ -127,34 +156,6 @@ public class operacionesConVectores {
     } while (i < n);
     Imprimir();
   }
-
-  public int busquedaSecuencial(int valor) {
-    for (int i = 0; i < vector.length; i++) {
-      if (valor == vector[i]) {
-        return i;
-      }
-    }
-    return -1;
-  }
-
-  public int busquedaBinaria(int valor) {
-    int n = vector.length;
-    int centro, primero = 0, ultimo = n - 1;
-    while (primero <= ultimo) {
-        centro = (ultimo + primero) / 2;
-        if (vector[centro] == valor){
-            return centro;
-        }
-        else if (valor < vector[centro]) {
-            ultimo = centro - 1;
-        } else {
-            primero = centro + 1;
-        }
-    }
-    return -1;
-}
-
-  // * NUEVO
 
   public void ordenarSeleccion() {
     int n = vector.length;
@@ -238,7 +239,7 @@ public class operacionesConVectores {
     }
   }
 
-  // * FIN NUEVO
+  // * IMPRIMIR
 
   public void Imprimir() {
     String cadena = "";
