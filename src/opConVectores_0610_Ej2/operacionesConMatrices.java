@@ -4,10 +4,16 @@ import javax.swing.JOptionPane;
 
 public class operacionesConMatrices {
 
+  private int tamano;
   private int[][] matriz;
 
   public operacionesConMatrices(int n) {
     matriz = new int[n][n];
+    this.tamano = n;
+  }
+
+  public int obtenerTamano() {
+    return tamano;
   }
 
   public operacionesConMatrices(int fila, int columna) {
@@ -39,8 +45,72 @@ public class operacionesConMatrices {
     JOptionPane.showMessageDialog(null, "cadena es \n" + cadena);
   }
 
+  // ! OPERACIONES CON MATRICES
+
+  int vector[] = convertirAVector();
+
+  public void sumarMatriz() {
+    int suma = 0;
+    for (int valor : vector) {
+      suma += valor;
+    }
+
+    JOptionPane.showMessageDialog(null, "Valor suma: " + suma);
+  }
+
+  public int obtenerMaximo() {
+    int max = vector[0];
+    for (int i = 0; i < vector.length; i++) {
+      if (vector[i] > max) {
+        max = vector[i];
+      }
+    }
+    return max;
+  }
+
+  public int obtenerMinimo() {
+    int min = vector[0];
+    for (int i = 0; i < vector.length; i++) {
+      if (vector[i] < min) {
+        min = vector[i];
+      }
+    }
+    return min;
+  }
+
+  public void obtenerMedia() {
+    double media = 0;
+    for (int valor : vector) {
+      media += valor;
+    }
+    media /= vector.length;
+
+    JOptionPane.showMessageDialog(null, "Valor media: " + media);
+  }
+
+  public void obtenerModa() {
+    int maximoNumRepeticiones = 0;
+    int moda = 0;
+
+    for (int i = 0; i < vector.length; i++) {
+      int numRepeticiones = 0;
+      for (int j = 0; j < vector.length; j++) {
+        if (vector[i] == vector[j]) {
+          numRepeticiones++;
+        } //fin if
+        if (numRepeticiones > maximoNumRepeticiones) {
+          moda = vector[i];
+          maximoNumRepeticiones = numRepeticiones;
+        } //fin if
+      }
+    } //fin for
+    JOptionPane.showMessageDialog(null, "Número que más se repite: " + moda);
+  }
+
+  // ! METODOS DE ORDENAMIENTO
+  int arr[] = convertirAVector();
+
   public void ordenarBurbuja() {
-    int arr[] = convertirAVector();
     int aux = 0;
     int i = 0;
     int j = 0;

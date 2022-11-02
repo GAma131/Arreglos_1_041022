@@ -192,11 +192,11 @@ public class Main_panelPrincipal {
             valor =
               JOptionPane.showInputDialog("Introduce el numero a buscar: ");
           } while (!validarN(valor));
-          tamano = obj.busquedaBinaria(Integer.parseInt(valor));
-          if (tamano != -1) {
+          p = obj.busquedaBinaria(Integer.parseInt(valor));
+          if (p != -1) {
             JOptionPane.showMessageDialog(
               null,
-              "La busqueda se encontro en la posicion: " + tamano
+              "La busqueda se encontro en la posicion: " + p
             );
           } else {
             JOptionPane.showMessageDialog(null, "La busqueda no se encontro");
@@ -263,14 +263,28 @@ public class Main_panelPrincipal {
           obj1.ImprimirMatriz();
           break;
         case "3":
+          obj1.sumarMatriz();
           break;
         case "4":
+          JOptionPane.showMessageDialog(
+            null,
+            "Valor Máximo: " +
+            obj1.obtenerMaximo() +
+            "\nValor Minimo: " +
+            obj1.obtenerMinimo()
+          );
           break;
         case "5":
+          JOptionPane.showMessageDialog(
+            null,
+            "Tamaño del arreglo: " + obj1.obtenerTamano()
+          );
           break;
         case "6":
+          obj1.obtenerMedia();
           break;
         case "7":
+          obj1.obtenerModa();
           break;
         case "8":
           obj1.ordenarBurbuja();
