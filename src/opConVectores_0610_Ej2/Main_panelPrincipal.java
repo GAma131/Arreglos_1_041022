@@ -248,7 +248,14 @@ public class Main_panelPrincipal {
       "5) Tamaño del arreglo\n" +
       "6) Media aritmetica\n" +
       "7) Obtener Moda\n" +
-      "8) Ordenamiento burbuja\n" +
+      "8) Ordenamiento burbuja (Ascendente)\n" +
+      "9) Ordenamiento burbuja (Descendente)\n" +
+      "10) Ordenar Selección\n" +
+      "11) Ordenar Inserción\n" +
+      "12) Ordenar Shell\n" +
+      "13) Ordenar Quicksort\n" +
+      "14) Busqueda Secuencial\n" +
+      "15) Busqueda Binaria\n" +
       "b) Regresar\n\n" +
       "Selecciona una opción valida:";
 
@@ -287,7 +294,72 @@ public class Main_panelPrincipal {
           obj1.obtenerModa();
           break;
         case "8":
-          obj1.ordenarBurbuja();
+          obj1.ordenarBurbujaAsc();
+          obj1.ImprimirMatriz();
+          break;
+        case "9":
+          obj1.ordenarBurbujaDesc();
+          obj1.ImprimirMatriz();
+          break;
+        case "10":
+          obj1.ordenarSeleccion();
+          obj1.ImprimirMatriz();
+          break;
+        case "11":
+          obj1.ordenarInsercion();
+          obj1.ImprimirMatriz();
+          break;
+        case "12":
+          obj1.ordenarShell();
+          obj1.ImprimirMatriz();
+          break;
+        case "13":
+          // todo: Resolver QuickSort
+          obj1.ordenarQuicksort(0, tamano - 1);
+          obj1.ImprimirMatriz();
+          break;
+        case "14":
+          String valor = "";
+          do {
+            valor =
+              JOptionPane.showInputDialog(
+                "Ingrese el numero que quiere buscar: "
+              );
+          } while (!validarN(valor));
+          int p = obj1.busquedaSecuencial(Integer.parseInt(valor));
+          if (p == -1) {
+            JOptionPane.showMessageDialog(
+              null,
+              "La busqueda secuencial no encontró el valor solicitado"
+            );
+          } else {
+            JOptionPane.showMessageDialog(
+              null,
+              "La busqueda secuencial encontro el valor solicitado en la posicion " +
+              "[" +
+              obj1.busquedaSecuencial(Integer.parseInt(valor)) +
+              "]"
+            );
+            obj1.ImprimirMatriz();
+          }
+          break;
+        case "15":
+          obj1.ordenarBurbujaAsc();
+          valor = "";
+          do {
+            valor =
+              JOptionPane.showInputDialog("Introduce el numero a buscar: ");
+          } while (!validarN(valor));
+          p = obj1.busquedaBinaria(Integer.parseInt(valor));
+          if (p != -1) {
+            JOptionPane.showMessageDialog(
+              null,
+              "La busqueda se encontro en la posicion: " + p
+            );
+          } else {
+            JOptionPane.showMessageDialog(null, "La busqueda no se encontro");
+          }
+          obj1.ImprimirMatriz();
           break;
         case "b":
           sentinel = false;
